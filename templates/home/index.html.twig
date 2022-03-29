@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+<section class="hero">
+    <div class="content">
+        <h2>DEAL GAMES</h2>
+
+    </div>
+    <div class="waves"></div>
+</section>
+
+<div class="headline m-5 text-center ">
+  <a href="{{path('admin')}}"><h2> Que recherchez-vous ? </h2></a>
+    
+</div>
+
+<div class="container-fluid">
+    <div class="card-container row justify-content-evenly">
+        <div class="card card__category bg-dark text-white">
+            <img class="card-img" src="images/vb.jpg" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Catégorie</h5>
+
+            </div>
+        </div>
+
+        <div class="card card__category bg-dark text-white">
+            <img class="card-img" src="images/vb.jpg" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Etat</h5>
+            </div>
+        </div>
+
+        <div class="card card__category bg-dark text-white">
+            <img class="card-img" src="images/vb.jpg" alt="Card image">
+            <div class="card-img-overlay">
+                 <h5 class="card-title">Ville</h5>
+           </div>
+        </div>
+
+    </div>
+
+
+    <div class="headline m-5 pt-5 text-center ">
+        <h2> Top annonces </h2>
+    </div>
+
+ {% for annonce in annonces %}
+    <div class="row card__product m-5">
+        <div class="col-5 mt-3">
+            <div class="card row-fluid">
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper col-4">
+                        <img class="img-fluid card__image" src="{{ annonce.imageName ? vich_uploader_asset(annonce) : asset('uploads/placeholder.jpg') }}" alt="Card image cap">
+                    </div>
+                    <div class="card-body col-4">
+                        <h4 class="card-title">{{ annonce.title }}</h4>
+                        <p class="card-text">{{ annonce.description }}</p>
+                        <p class="card-text">test</p>
+                        <p class="card-text">Paris • 75000</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+ {% endfor %}
+     
+    
+</div>
+{% endblock %}

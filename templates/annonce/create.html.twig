@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dealgames - Créez votre nouvelle annonce dès maintenant !{% endblock %}
+
+{% block body %}
+<h1 class="text-light">Nouvelle annonce</h1>
+<div class="container text-light">
+    {{form_start(formvue)}}
+    {{form_widget(formvue)}}
+    <button formnovalidate class="btn btn-primary mb-2">Soumettre</button>
+    {{form_end(formvue)}}
+</div>
+
+{% endblock %}
