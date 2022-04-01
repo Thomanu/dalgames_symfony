@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AnnonceRepository;
 use App\Entity\Annonce;
 use App\Form\AnnonceType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,10 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnnonceController extends AbstractController
 {
     #[Route('/annonce', name: 'app_annonce_index')]
-    public function index(): Response
+    public function index(AnnonceRepository $annonce): Response
     {
+        
         return $this->render('annonce/index.html.twig', [
             'controller_name' => 'Dealgames - Déposer une annonce',
+            'annonces' => $annonce->findAll(),
+            
         ]);
     }
     #[Route('/annonce/create', name: 'app_annonce_create')]
@@ -29,6 +33,10 @@ class AnnonceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+
+            $user= $this->getUser();
+            
+            $annonce->setUser($user);
             $entityManagerInterface->persist($annonce);
             $entityManagerInterface->flush();
 
@@ -59,19 +67,41 @@ class AnnonceController extends AbstractController
         ]);
     }
 
-    #[Route('/annonce/delete/{id}', name: 'app_annonce_dilete')]
+    #[Route('/annonce/delete/{id}', name: 'app_annonce_delete')]
     public function delete(EntityManagerInterface $entityManagerInterface, Annonce $annonce): Response
     {
         
        
-            $entityManagerInterface->persist($annonce);
+            $entityManagerInterface->remove($annonce);
             $entityManagerInterface->flush();
 
             $this->addFlash('success' , 'Album Annonce enregistré !');
         
-        return $this->render('annonce/create.html.twig'
+        return $this->redirectToRoute('app_profile'
          
         );
     }
+
+    
+    #[Route('/annonce/show/{id}', name: 'app_annonce_show')]
+    public function show($id)
+    {
+        $annonce = $this->getDoctrine()->getRepository(Annonce::class);
+        $annonce = $annonce->find($id);
+
+       if (!$annonce) {
+           throw $this->createNotFoundException(
+
+            'Aucun annonce pour l\'id: ' . $id
+
+           );
+       }
+
+       return $this->render(
+           'annonce/show.html.twig',
+           array('annonce' => $annonce)
+       );
+    }
+
    
 }

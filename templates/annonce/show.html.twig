@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+
+<div class="flex-parent mt-5 ">
+    <div class="flex-child " style="height:600px;width:200px">
+        <img class="product_image" src="{{ annonce.imageName ? vich_uploader_asset(annonce) : asset('uploads/placeholder.jpg') }}" style="width:70%; height:100%" alt="">
+    </div>
+
+    <div class="flex-child ms-5 pb-5">
+        <div class="container-type fw-bolder border-bottom">
+        
+        <h2 class="product_seller">{{ annonce.title }}</h2>
+        </div>
+        <div class="product_button">
+            <h5 class="mb-5">Adresse E-mail : {{ annonce.user.email}}</h5>
+            <div class="container-type fw-bolder border-bottom mb-3"></div>
+            <h5 class="mb-5">Numéro de téléphone : {{ annonce.user.phone}}</h5>
+            <div class="container-type fw-bolder border-bottom mb-3"></div>
+            <h5 class="mb-5">Description : {{annonce.description}}</h5>
+            <div class="container-type fw-bolder border-bottom mb-3"></div>
+            <h5 class="">Ajouté le : {{annonce.createat|date}}</h5>
+
+            
+            
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

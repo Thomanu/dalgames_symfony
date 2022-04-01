@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class=" card card__profile bg-dark">
+        <div class="upper"> </div>
+        <div class="user text-center">
+            <div class="profile"> <img src="images/dv.jpg" class="rounded-circle" width="80"> </div>
+        </div>
+        <div class="mt-5 text-center">
+            <h4 class="mb-0">Bolol</h4> <span class="text-muted d-block mb-2"></span> 
+            
+              
+            <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+                
+                <div class="stats">
+                    <p class="mb-0 ">E-Mail</p> <span>bolot.thomas@gmail.com</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row m-5 justify-content-center">
+{% for annonce in annonces %}
+
+
+
+    <div class="col-5 mt-3">
+        <div class="card row-fluid">
+            <div class="card-horizontal">
+                <div class="img-square-wrapper col-4">
+                    <img class="img-fluid card__image"
+                        src="{{ annonce.imageName ? vich_uploader_asset(annonce) : asset('uploads/placeholder.jpg') }}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body col-4">
+                    <a href="{{ path('app_annonce_show', {'id': annonce.id})}}" ></a>
+                    <h4 class="card-title">{{ annonce.title }}</h4>
+                    <p class="card-text">{{ annonce.description }}</p>
+                    <p class="card-text">{{ annonce.user.pseudo }}</p>
+                    <p class="card-text">{{ annonce.city }}</p>
+                    <button> <a href="{{ path('app_annonce_show', {'id': annonce.id})}}" class="button">Voir plus</a></button>
+                  <button><a href="{{path("app_annonce_edit" , {id : annonce.id}) }}" class="button">Editer</a></button>  
+                  <button><a href="{{path("app_annonce_delete" , {id : annonce.id}) }}" class="button">Supprimer</a></button>
+                        
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,14 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet');
-
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
-
-
-body {
-  background-color: #24252D;
-  color: white;
-}
 
 :root {
   --color: #13a894;
@@ -19,6 +12,43 @@ body {
   font-family: 'Montserrat', sans-sherif;
   margin: 0;
   padding: 0;
+  background-color: #151518;
+  color: white;
+}
+
+/* NAVBAR */
+
+
+body > header > nav > a {
+  padding-left:15px ;
+}
+
+#navbarSupportedContent > ul > li:nth-child(5) > a {
+  text-decoration: none;
+}
+
+.navbar-nav > li{
+  padding-left:30px;
+  padding-right:30px;
+  
+}
+
+#navbarSupportedContent > ul {
+  color: white;
+}
+
+body > main > div.container-fluid > a > div > h2 {
+  color: white;
+}
+
+
+/* NAVBAR */
+
+/* HOME PAGE */
+
+
+body > main > div.headline.m-5.text-center > a > h2 {
+  text-decoration: none;
 }
 
 .content {
@@ -54,7 +84,7 @@ body {
   line-height: 1.4;
 }
 
-/* ========================= */
+/* WAVES */
 
 .waves {
   position: absolute;
@@ -94,30 +124,185 @@ body {
   0% {
     transform: translate(-50%, -75%) rotate(0deg);
   }
-  
+
   100% {
     transform: translate(-50%, -75%) rotate(360deg);
   }
 }
 
+/* FIN WAVE */
+
+
+/* CARD HOME */
 
 .card__category {
-    width: 16% ;
-    height: 16%;
+  width: 20%;
+  height: 16%;
+  background: none;
 }
+
+
+body > main > div.container-fluid > div.card-container.row.justify-content-evenly > div:nth-child(1) > img {
+  height: 200px;
+}
+
+body > main > div.container-fluid > div.card-container.row.justify-content-evenly > div:nth-child(2) > img {
+  height: 200px;
+}
+
+body > main > div.container-fluid > div.card-container.row.justify-content-evenly > div:nth-child(3) > img {
+  height: 200px;
+}
+
+
+
+
 
 .card-horizontal {
   display: flex;
   flex: 1 1 auto;
-  color: purple ;
+  color: #000000;
+}
+
+/* CARD HOME */
+
+/* HOME PAGR */
+
+
+
+
+
+/* PRODUCT PAGE */
+
+
+
+
+.flex-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-child {
+  flex: 1;
+  justify-content: center;
+}
+
+body>main>div.flex-parent.mt-5>div:nth-child(2) {
+  margin-top: 110px;
+}
+
+.container-type {
+  width: 20rem;
+}
+
+.product_image {
+ 
+  margin-left: 200px;
+  
+  /* border-radius: 20px; */
+  box-shadow: 25px 25px 10px rgba(0,0,0,0.65);
+}
+
+.product_button {
+  margin-top: 65px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  
+}
+
+
+body > main > div > div:nth-child(2) > div > h4:nth-child(3) {
+  margin-top: 50px;
+}
+
+body > main > div.flex-parent.mt-5 > div:nth-child(2) > div > h4:nth-child(2) {
+  margin-top: 50px ;
+  padding-right: 10px;
+
+}
+
+body > main > div.product.mt-5 {
+  padding-top: 80px;
+  margin-left: 197px;
+}
+
+
+body > main > div {
+  padding-top: 5rem;
+  margin-bottom: 6rem;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+button {
+	width: 125px;
+	height: 45px;
+	cursor: pointer;
+	font-size: 20px;
+	/* font-family: 'Staatliches', cursive; */
+	/* letter-spacing: 5px; */
+	background: #25a099;
+  color: rgb(0, 0, 0);
+	
+  border-radius: 20px;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+	transition: 500ms;
+  
+}
+
+a {
+  text-decoration: none;
+  color: #000000 ; 
+}
+
+button:after {
+	content: '';
+	position: absolute;
+	transform: translateX(-55px) translateY(-40px);
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: transparent;
+	box-shadow: 0px 0px 50px transparent;
+	transition: 500ms;
+}
+
+button:hover {
+	transform: translateY(-5px);
+	box-shadow: 0px 10px 10px rgba(0,0,0,0.4);
+}
+
+
+
+button:focus {
+	outline: none;
+}
+
+
+/* PRODUCT PAGE */
+
+
+body > main > h1 {
+ margin-left: 10rem;
 }
 
 
 
 
-/* footer */
+
+/* FOOTER */
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 section {
   padding: 60px 0;
 }
@@ -128,79 +313,229 @@ section .section-title {
   margin-bottom: 50px;
   text-transform: uppercase;
 }
+
 #footer {
   background: #1aac8a !important;
 }
-#footer h5{
-padding-left: 10px;
+
+#footer h5 {
+  padding-left: 10px;
   border-left: 3px solid #eeeeee;
   padding-bottom: 6px;
   margin-bottom: 20px;
-  color:#ffffff;
+  color: #ffffff;
 }
+
 #footer a {
   color: #ffffff;
   text-decoration: none !important;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
-#footer ul.social li{
-padding: 3px 0;
+
+#footer ul.social li {
+  padding: 3px 0;
 }
+
 #footer ul.social li a i {
   margin-right: 5px;
-font-size:25px;
--webkit-transition: .5s all ease;
--moz-transition: .5s all ease;
-transition: .5s all ease;
+  font-size: 25px;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
 }
+
 #footer ul.social li:hover a i {
-font-size:30px;
-margin-top:-10px;
+  font-size: 30px;
+  margin-top: -10px;
 }
+
 #footer ul.social li a,
-#footer ul.quick-links li a{
-color:#ffffff;
+#footer ul.quick-links li a {
+  color: #ffffff;
 }
-#footer ul.social li a:hover{
-color:#eeeeee;
+
+#footer ul.social li a:hover {
+  color: #eeeeee;
 }
-#footer ul.quick-links li{
-padding: 3px 0;
--webkit-transition: .5s all ease;
--moz-transition: .5s all ease;
-transition: .5s all ease;
+
+#footer ul.quick-links li {
+  padding: 3px 0;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
 }
-#footer ul.quick-links li:hover{
-padding: 3px 0;
-margin-left:5px;
-font-weight:700;
+
+#footer ul.quick-links li:hover {
+  padding: 3px 0;
+  margin-left: 5px;
+  font-weight: 700;
 }
-#footer ul.quick-links li a i{
-margin-right: 5px;
+
+#footer ul.quick-links li a i {
+  margin-right: 5px;
 }
+
 #footer ul.quick-links li:hover a i {
   font-weight: 700;
 }
 
-@media (max-width:767px){
-#footer h5 {
-  padding-left: 0;
-  border-left: transparent;
-  padding-bottom: 0px;
-  margin-bottom: 10px;
-}
-}
-
-
-/* fin footer */
-
-
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
+@media (max-width:767px) {
+  #footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
   }
-  .row.content {height: auto;} 
+}
+
+
+/*  FOOTER */
+
+
+
+/*PROFILE PAGE */
+
+
+
+
+
+
+.card__profile {
+    width: 440px;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    height: 270px;
+  
+}
+
+.upper {
+    height: 100px
+}
+
+.upper img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px
+}
+
+.user {
+    position: relative
+}
+
+.profile img {
+    height: 80px;
+    width: 80px;
+    /* margin-top: 2px */
+}
+
+.profile {
+    position: absolute;
+    top: -130px;
+    left: 38%;
+    height: 90px;
+    width: 90px;
+    border: 3px solid #fff;
+    border-radius: 50%
+}
+
+.follow {
+  
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 35px
+}
+
+.stats span {
+  
+    font-size: 29px
+}
+
+
+
+/* PROFILE PAGE */
+
+
+/* LOGIN REGISTER  */
+
+body > main > form {
+  margin-top: 3rem;
+  margin-bottom: 35rem;
+  width: 25rem;
+  margin-left: 36rem;
+}
+
+.logreg {
+  margin-top: 5rem;
+  margin-right: 6rem;
+  margin-left: 36rem;
+}
+
+body > main > div > form {
+  margin-left: 28rem;
+}
+
+body > main > form > button {
+  margin-top: 1rem;
+}
+
+#username {
+margin-top: 1rem;
+}
+
+#password {
+  margin-top: 1rem;
+  }
+
+  body > main > h2 {
+    margin-left: 52rem;
+    margin-top: 5rem;
+  }
+
+
+/* LOGIN REGISTER */
+
+body > main > form > p:nth-child(7) > a {
+  color:#35acca;
+
+}
+body > main > form > p:nth-child(8) > a {
+  color:#35acca;
+
+}
+
+
+
+/* REGISTER */
+
+body > main > div > form {
+  width: 25rem;
+}
+
+/* REGISTER */
+
+
+.checkmail {
+  padding-top: 5rem;
+}
+
+.checkmail2 {
+  padding-bottom: 35rem;
+}
+
+
+
+@media screen and ( max-width: 768px) {
+
+  body > main > div.container-fluid > div.card-container.row.justify-content-evenly {
+     display: flex;
+     flex-direction: row;
+  }
+ 
+
+
 }

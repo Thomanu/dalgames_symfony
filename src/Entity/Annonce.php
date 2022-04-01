@@ -44,6 +44,17 @@ class Annonce
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $imageName;
 
+    #[ORM\ManyToOne(targetEntity: Categorie::class, inversedBy: 'Annonces')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $categorie;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'no')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $user;
+
+    #[ORM\Column(type: 'string', length: 60, nullable: true)]
+    private $city;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -143,5 +154,41 @@ class Annonce
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
     }
 }

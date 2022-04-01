@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Annonce;
+use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,7 +17,12 @@ class AnnonceType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('description')  
+            ->add('description')
+            ->add('city')
+            ->add('categorie', EntityType::class, [
+                "class"=> Categorie::class,
+                "choice_label"=>"name"
+            ])
         ;
 
         $builder->add('imageFile', VichImageType::class, [

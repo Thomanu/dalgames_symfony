@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Form\AnnonceType;
+use App\Entity\Annonce;
+use App\Entity\Categorie;
 use App\Repository\AnnonceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +18,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'annonces' => $annonce->findAll(),
+            'annonces' => $annonce->findByDate('a'),
         ]);
     }
 }

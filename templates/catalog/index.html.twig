@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CatalogController!{% endblock %}
+
+{% block body %}
+
+
+<h1 class="catalog_title">Annonces</h1>
+
+  <div class="row m-5 justify-content-center">
+{% for annonce in annonces %}
+
+
+ 
+        <div class="col-5 mt-3">
+            <div class="card row-fluid h-100">
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper col-4">
+                        <img class="img-fluid card__image" src="{{ annonce.imageName ? vich_uploader_asset(annonce) : asset('uploads/placeholder.jpg') }}" alt="Card image cap">
+                    </div>
+                    <div class="card-body col-4">
+                          <a href="{{ path('app_annonce_show', {'id': annonce.id})}}" class=" stretched-link"></a>
+                        <h4 class="card-title">{{ annonce.title }}</h4>
+                        <p class="card-text">{{ annonce.description }}</p>
+                        <p class="card-text">{{ annonce.user.pseudo }}</p>
+                        <p class="card-text">{{ annonce.city }}</p>
+                        <button>Voir</button>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    
+
+{% endfor %}
+</div>
+{% endblock %}
